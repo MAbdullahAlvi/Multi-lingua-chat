@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% block content %}
+<div style="background-image: 'base/favicon.jpg'; background-size: cover; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="background-color: rgba(0, 0, 0, 0.5); padding: 20px;"> <!-- Adjust background color and padding as needed -->
+        <h1 style="color: white;">Convert Message</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="id_message" style="color: white;">Message:</label><br>
+                <textarea name="message" id="id_message" style="width: 479px; height: 275px; background-color: #9294b1; color: white;">{{ form.message.value }}</textarea>
+                <!-- Displaying the output inside the textarea -->
+                <p>{{ translated_message }}</p>
+            </div>
+            <div>
+                <label for="id_language" style="color: white;">Language:</label><br>
+                {{ form.language }}
+            </div>
+            <button type="submit">Convert</button>
+        </form>
+    </div>
+</div>
+
+    
+    
+{% endblock content %}
